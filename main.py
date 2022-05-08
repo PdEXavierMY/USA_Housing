@@ -9,6 +9,19 @@ print(Housing)
 mediaingresos_area = Housing['Ingresos_area'].mean()
 mediahabitaciones_area = Housing['Habitaciones_area'].mean()
 mediadormitorios_area = Housing['Dormitorios_area'].mean()
+dormitorios = list(Housing['Dormitorios_area'])
+dormitorios_area = []
+for i in dormitorios:
+    dormitorios_area.append(int(i))
+del dormitorios
+dormitorios_area = sorted(dormitorios_area)
+minimo_dor = min(dormitorios_area) ; maximo_dor = max(dormitorios_area)
+conteo = []
+habitaciones = []
+for i in range(minimo_dor, maximo_dor+1):
+    recuento = dormitorios_area.count(i)
+    conteo.append(recuento)
+    habitaciones.append(i)
 mediaprecio = Housing['Precio'].mean()
 print("La información de el dataset analizado es la siguiente\n")
 print(Housing.info())
@@ -24,11 +37,16 @@ def barras():
 
 def histograma():
     plt.figure(figsize=(9,5))
-    plt.hist(sorted(Housing['Dormitorios_area']), color = 'yellow')
-    plt.xlabel('Dormitorios por área')
-    plt.axvline(x=mediadormitorios_area, color='black', linestyle='dotted', label='Media de dormitorios/area')
-    plt.title("Gráfico con el número de dormitorios/área")
+    plt.hist(Housing['Precio'], color = 'yellow')
+    plt.xlabel('Precio')
+    plt.axvline(x=mediaprecio, color='black', linestyle='dotted', label='Media del precio')
+    plt.title("Gráfico con el precio de los apartamentos(en millones aproximados)")
     plt.legend()
     plt.show()
 
-histograma()
+def pie():
+    plt.figure(figsize=(9,5))
+    plt.pie(conteo, labels=conteo)
+    plt.title("Gráfico con el numero aproximado de habitaciones por apartamento")
+    plt.legend(habitaciones, bbox_to_anchor=(1.05, 1))
+    plt.show()
