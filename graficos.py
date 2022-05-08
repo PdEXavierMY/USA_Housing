@@ -2,6 +2,7 @@ from dis import dis
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from time import sleep
 
 from introducir.numero import solicitar_introducir_numero_extremo
 
@@ -73,6 +74,7 @@ def eleccion():
         print("La información relativa al dataset analizado es la siguiente:\n")
         print(Housing.info())
         print("")
+        sleep(2)
         eleccion()
     elif n == 2:
         print("Este grafico analiza la relación que existe entre la media del número de habitaciones de un apartamento en una zona concreta con los ingresos medios en esa zona, con el objetivo de confirmar o desmentir la hipótesis de que a más habitaciones mayor el sueldo medio en la zona.")
@@ -87,7 +89,7 @@ def eleccion():
         pie()
         eleccion()
     elif n == 5:
-        print("Este gráfico nos enseña la distribución de la población en una zona en función de la antigüedad de sus apartamentos, casas... Podemos ver que las mayores poblaciones se concentran en la media de la antigüedad de los domicilios, como era de esperar.")
+        print("Este gráfico nos enseña la distribución de la población en una zona en función de la antigüedad de sus apartamentos, casas... Podemos ver que las mayores y menores poblaciones se encuentran los que más dispersos. En cambio, en la media de la antigüedad de los domicilios y de la población se concentran la mayoría de puntos, como era de esperar.")
         dispersion()
         eleccion()
     elif n == 6:
