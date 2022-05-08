@@ -65,8 +65,8 @@ def dispersion():
 
 def eleccion():
     print("Este repositorio contiene un análisis del dataset USA_Housing. ¿Que parte del análisis deseas visualizar?")
-    print("1: Análisis inicial\n2: Grafico de Barras\n3: Histogramas\n4: Grafico de secciones\n5: Grafico de Dispersión\n6: Finalizar\n")
-    n = solicitar_introducir_numero_extremo("Debes elegir", 1, 6)
+    print("1: Análisis inicial\n2: Grafico de Barras\n3: Histogramas\n4: Grafico de secciones\n5: Grafico de Dispersión\n6: Todos los gráficos\n7: Finalizar\n")
+    n = solicitar_introducir_numero_extremo("Debes elegir", 1, 7)
     if n ==1:
         print("El dataset analizado es el siguiente:\n")
         print(Housing)
@@ -75,17 +75,27 @@ def eleccion():
         print("")
         eleccion()
     elif n == 2:
+        print("Este grafico analiza la relación que existe entre la media del número de habitaciones de un apartamento en una zona concreta con los ingresos medios en esa zona, con el objetivo de confirmar o desmentir la hipótesis de que a más habitaciones mayor el sueldo medio en la zona.")
         barras()
         eleccion()
     elif n == 3:
+        print("Este gráfico muestra la agrupación del precio medio de los apartamentos por zona. Este gráfico nos permite hacernos una idea aproximada de la media y cantidad de apartamentos con un precio concreto.")
         histograma()
         eleccion()
     elif n == 4:
+        print("Este gráfico nos muestra la cantidad del número de dormitorios(leyenda). En este caso sirve para comprobar cuantas habitaciones de media tiene la gente en su domicilio.")
         pie()
         eleccion()
     elif n == 5:
+        print("Este gráfico nos enseña la distribución de la población en una zona en función de la antigüedad de sus apartamentos, casas... Podemos ver que las mayores poblaciones se concentran en la media de la antigüedad de los domicilios, como era de esperar.")
         dispersion()
         eleccion()
     elif n == 6:
+        print("Ahora se visualizarán todos los gráficos 1 a 1. Si quiere un minianálisis de los resultados ejecute cada gráfico independientemente.")
+        barras()
+        histograma()
+        pie()
+        dispersion()
+        eleccion()
+    elif n == 7:
         exit()
-eleccion()
