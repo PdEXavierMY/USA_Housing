@@ -1,6 +1,6 @@
 # USA_Housing
 
-Link al [repositorio](https://github.com/Xavitheforce/USA_Housing)
+Aquí se encuentra el link al [repositorio](https://github.com/Xavitheforce/USA_Housing)
 ***
 
 El ejercicio plantea diferentes gráficas para diferentes apartados del csv proporcionado. En el propio código están contempladas miniexplicaciones para cada gráfica(simple interpretación visual).
