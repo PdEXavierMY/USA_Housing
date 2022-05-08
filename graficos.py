@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from time import sleep
-
 from introducir.numero import solicitar_introducir_numero_extremo
 
 Housing = pd.read_csv("USA_Housing.csv")
