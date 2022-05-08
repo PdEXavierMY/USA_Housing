@@ -1,14 +1,17 @@
+from dis import dis
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
 Housing = pd.read_csv("USA_Housing.csv")
-Housing.rename(columns={'Avg. Area Income':'Ingresos_area', 'Avg. Area House Age':'Antiguedadcasa_area', 'Avg. Area Number of Rooms':'Habitaciones_area', 'Avg. Area Number of Bedrooms':'Dormitorios_area', 'Population':'Población', 'Price':'Precio', 'Address':'Dirección'}, inplace=True)
+Housing.rename(columns={'Avg. Area Income':'Ingresos_area', 'Avg. Area House Age':'Antiguedadcasa_area', 'Avg. Area Number of Rooms':'Habitaciones_area', 'Avg. Area Number of Bedrooms':'Dormitorios_area', 'Area Population':'Poblacion', 'Price':'Precio', 'Address':'Dirección'}, inplace=True)
 Housing.dropna()
 print(Housing)
 mediaingresos_area = Housing['Ingresos_area'].mean()
 mediahabitaciones_area = Housing['Habitaciones_area'].mean()
-mediadormitorios_area = Housing['Dormitorios_area'].mean()
+mediaantiguedadcasa = Housing['Antiguedadcasa_area'].mean()
+mediapoblacion = Housing['Poblacion'].mean()
+#mediadormitorios_area = Housing['Dormitorios_area'].mean()
 dormitorios = list(Housing['Dormitorios_area'])
 dormitorios_area = []
 for i in dormitorios:
@@ -49,4 +52,14 @@ def pie():
     plt.pie(conteo, labels=conteo)
     plt.title("Gráfico con el numero aproximado de habitaciones por apartamento")
     plt.legend(habitaciones, bbox_to_anchor=(1.05, 1))
+    plt.show()
+
+def dispersion():
+    plt.figure(figsize=(9,5))
+    plt.scatter(Housing['Antiguedadcasa_area'], Housing['Poblacion'], s=2, color='orange')
+    plt.xlabel('Antigüedad media los apartamentos de una zona(años)') ; plt.ylabel('Población media de una zona')
+    plt.axvline(x=mediaantiguedadcasa, color='red', linestyle='dashdot', label='Media de la población')
+    plt.axhline(y=mediapoblacion, color='red', linestyle='dashed', label='Media de la antiguedad de los apartamentos')
+    plt.legend(bbox_to_anchor=(0.48, 0.85))
+    plt.title("Gráfico con la población de una zona en función de la antigüedad media de sus apartamentos")
     plt.show()
